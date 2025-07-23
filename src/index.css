@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "PopReg";
+  src: url("../public/fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PopBold";
+  src: url("../public/fonts/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PopMed";
+  src: url("../public/fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PopThin";
+  src: url("../public/fonts/Poppins-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PopSemi";
+  src: url("../public/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@theme {
+  --color-bg: #13a538;
+  --color-whiteThirty: #ffffff4d;
+  --font-popreg: PopReg, sans-serif;
+  --font-popb: PopBold, sans-serif;
+  --font-popm: PopMed, sans-serif;
+  --font-popt: PopThin, sans-serif;
+  --font-popsemi: PopSemi, sans-serif;
+}
