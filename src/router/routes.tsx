@@ -7,6 +7,9 @@ import SignUp from "../pages/SignUp";
 
 const SignIn = lazy(() => import("../pages/SignIn"));
 const Verify = lazy(() => import("../pages/Verify"));
+const PassportFile = lazy(() => import("../pages/PassportFile"));
+const PassportInfo = lazy(() => import("../pages/PassportInfo"));
+const OtherInfo = lazy(() => import("../pages/OtherInfo"));
 
 export default function Router() {
   const routes = useRoutes([
@@ -29,6 +32,18 @@ export default function Router() {
         {
           element: <Verify />,
           path: "/verify",
+        },
+        {
+          element: <PassportFile />,
+          path: "/passport",
+        },
+        {
+          element: <PassportInfo />,
+          path: "/passport-info",
+        },
+        {
+          element: <OtherInfo />,
+          path: "/other-info",
         },
       ],
     },

@@ -1,13 +1,17 @@
-import { Button } from "antd";
+import { Button, type ButtonProps as AntdButtonProps } from "antd";
 import type { CSSProperties, FC } from "react";
 
-interface ButtonProps {
+interface CustomButtonProps extends Omit<AntdButtonProps, "children"> {
   text: string;
-  style?: CSSProperties;
+  style: CSSProperties;
 }
 
-const CustomButton: FC<ButtonProps> = ({ text, style }) => {
-  return <Button style={style}>{text}</Button>;
+const CustomButton: FC<CustomButtonProps> = ({ text, style, ...props }) => {
+  return (
+    <Button {...props} style={style}>
+      {text}
+    </Button>
+  );
 };
 
 export default CustomButton;

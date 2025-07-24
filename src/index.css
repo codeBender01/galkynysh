@@ -20,15 +20,39 @@
   font-family: "PopSemi";
   src: url("../public/fonts/Poppins-SemiBold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Inter";
+  src: url("../public/fonts/Inter-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+}
 
 @theme {
   --color-bg: #13a538;
   --color-whiteThirty: #ffffff4d;
   --color-mainText: #2a3547;
   --color-borderGray: #eaeff4;
+  --color-textGray: #969696;
+  --color-textGray2: #6e6e6e;
+  --color-textGray3: #474747;
+  --color-grayBg: #f3f3f3;
+  --color-lightGreen: #dcf6e2;
   --font-popreg: PopReg, sans-serif;
   --font-popb: PopBold, sans-serif;
   --font-popm: PopMed, sans-serif;
   --font-popt: PopThin, sans-serif;
   --font-popsemi: PopSemi, sans-serif;
+  --font-inter: Inter, sans-serif;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.ant-modal-content {
+  border-radius: 18px !important;
 }

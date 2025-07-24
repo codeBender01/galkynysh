@@ -11,7 +11,7 @@ import { Outlet } from "react-router-dom";
 
 const Auth: FC = () => {
   return (
-    <main className="flex w-full h-screen">
+    <main className="flex w-full h-screen max-h-screen overflow-hidden">
       <div className="w-[50%] bg-bg relative flex items-center justify-center">
         <div className="absolute bottom-0 right-10">
           <img src={ellipsis1} alt="" />
