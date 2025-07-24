@@ -24,6 +24,8 @@
 @theme {
   --color-bg: #13a538;
   --color-whiteThirty: #ffffff4d;
+  --color-mainText: #2a3547;
+  --color-borderGray: #eaeff4;
   --font-popreg: PopReg, sans-serif;
   --font-popb: PopBold, sans-serif;
   --font-popm: PopMed, sans-serif;

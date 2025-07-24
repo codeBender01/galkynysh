@@ -2,13 +2,14 @@ import type { FC } from "react";
 
 import ellipsis1 from "../assets/ellipsis1.png";
 import ellipsis2 from "../assets/ellipsis2.png";
+import ellipsis3 from "../assets/ellipsis3.png";
 import logo from "../assets/logo.png";
 
 import Star from "../svgs/Star";
 
 import { Outlet } from "react-router-dom";
 
-const Login: FC = () => {
+const Auth: FC = () => {
   return (
     <main className="flex w-full h-screen">
       <div className="w-[50%] bg-bg relative flex items-center justify-center">
@@ -28,11 +29,14 @@ const Login: FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-[50%]">
+      <div className="w-[50%] relative flex justify-center">
+        <div className="absolute top-0 right-0">
+          <img src={ellipsis3} alt="" />
+        </div>
         <Outlet />
       </div>
     </main>
   );
 };
 
-export default Login;
+export default Auth;
