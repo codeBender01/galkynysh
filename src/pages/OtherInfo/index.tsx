@@ -1,4 +1,5 @@
 import { type FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../../components/Button";
 import CustomRadioButton from "../../components/CustomRadioButton";
@@ -9,6 +10,8 @@ import tick from "../../assets/tick.png";
 const labelClassname = "font-popm text-textGray text-xs";
 
 const OtherInfo: FC = () => {
+  const navigate = useNavigate();
+
   const [confirmModal, setConfirmModal] = useState(false);
 
   return (
@@ -123,6 +126,7 @@ const OtherInfo: FC = () => {
           </p>
 
           <CustomButton
+            onClick={() => navigate("/home")}
             text="Baş sahypa"
             style={{
               backgroundColor: "#DCF6E2",

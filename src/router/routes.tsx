@@ -10,6 +10,7 @@ const Verify = lazy(() => import("../pages/Verify"));
 const PassportFile = lazy(() => import("../pages/PassportFile"));
 const PassportInfo = lazy(() => import("../pages/PassportInfo"));
 const OtherInfo = lazy(() => import("../pages/OtherInfo"));
+const Home = lazy(() => import("../pages/Home"));
 
 export default function Router() {
   const routes = useRoutes([
@@ -46,6 +47,14 @@ export default function Router() {
           path: "/other-info",
         },
       ],
+    },
+    {
+      element: (
+        <Suspense fallback={<div>Loading</div>}>
+          <Home />
+        </Suspense>
+      ),
+      path: "/home",
     },
   ]);
 
