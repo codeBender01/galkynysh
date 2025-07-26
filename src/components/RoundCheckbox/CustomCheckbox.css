@@ -1,0 +1,18 @@
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #13a538 !important;
+  border-color: #13a538 !important;
+  border-radius: 50% !important;
+}
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner:hover {
+  border-radius: 50% !important;
+}
+
+.custom-checkbox .ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #13a538 !important;
+  border-radius: 50% !important;
+}
+
+.custom-checkbox .ant-checkbox .ant-checkbox-inner {
+  border-color: #13a538 !important;
+  border-radius: 50% !important;
+}

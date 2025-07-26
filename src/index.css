@@ -40,6 +40,14 @@
   --color-paleYellow: #fff9f1;
   --color-yellow: #ffa41b;
   --color-borderGray2: #e0e0e0;
+  --color-paleGreen: #ffffff4d;
+  --color-paleGreen2: #13683c17;
+  --color-paleGreen3: #eef2f5;
+  --color-paleRed: #f5eeee;
+  --color-darkerGreen: #0c7d29;
+  --color-grayBg2: #ebf2ed99;
+  --color-danger: #cf0000;
+  --color-red: #ff4440;
   --font-popreg: PopReg, sans-serif;
   --font-popb: PopBold, sans-serif;
   --font-popm: PopMed, sans-serif;
