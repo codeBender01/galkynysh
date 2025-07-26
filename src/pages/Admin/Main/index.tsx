@@ -1,65 +1,15 @@
 import type { FC } from "react";
 
-import head from "../../../assets/head.png";
-import bag from "../../../assets/bag.png";
-import mail from "../../../assets/mail.png";
-import star from "../../../assets/star.png";
-import chats from "../../../assets/chats.png";
-import connect from "../../../assets/connect.png";
-
 import UsersTable from "../../../components/Table";
+import CustomButton from "../../../components/Button";
+import Post from "../../../components/Post";
 // import ProfileHeader from "../../../components/ProfileAdmin";
 
-const cards = [
-  {
-    img: head,
-    text: "Resmi Hasaplar",
-    number: 96,
-    bg: "#EBFFF0",
-    color: "#13A538",
-  },
-  {
-    img: bag,
-    text: "Adaty Ulanyjylar",
-    number: 3650,
-    bg: "#FEF5E5",
-    color: "#FFAE1F",
-  },
-  {
-    img: mail,
-    text: "Gelen Hatlar",
-    number: 356,
-    bg: "#E8F7FF",
-    color: "#49BEFF",
-  },
-  {
-    img: star,
-    text: "Bildirişler",
-    number: 96,
-    bg: "#FBF2EF",
-    color: "#FA896B",
-  },
-  {
-    img: chats,
-    text: "Habarlar",
-    number: 96,
-    bg: "#E6FFFA",
-    color: "#13DEB9",
-  },
-  {
-    img: connect,
-    text: "Tranzaksiýalar",
-    number: 96,
-    bg: "#EBF3FE",
-    color: "#539BFF",
-  },
-];
+import bannerAdmin from "../../../assets/bannerAdmin.png";
+
+import { cards, avatars, posts } from "./lib";
 
 const Main: FC = () => {
-  //   const handleEditClick = () => {
-  //     console.log("Edit button clicked");
-  //   };
-
   return (
     <main>
       <div className="flex items-center gap-[30px] justify-between mt-6">
@@ -79,20 +29,74 @@ const Main: FC = () => {
         })}
       </div>
       <div className="flex gap-[30px] mt-[30px]">
-        <UsersTable />
-        <div className="shadow-lg">
-          <h1 className="text-2xl font-popm text-gray-900 mb-1 p-6">
+        <div className="shadow-lg flex-1">
+          <div className="mb-4 p-6">
+            <h1 className="text-2xl font-semibold text-gray-900 mb-1 font-popsemi">
+              Täze Giren Ulanjylar
+            </h1>
+            <p className="text-sm text-gray-500">TM BIZ</p>
+          </div>
+          <UsersTable isTransactionNeeded={false} />
+        </div>
+        <div className="shadow-lg w-[360px] p-6">
+          <h1 className="text-lg font-popsemi text-[#2A3547] mb-1">
             Top Ulanyjylar
           </h1>
+          <ul className="mt-[30px] flex flex-col gap-8">
+            {avatars.map((a) => {
+              return (
+                <li key={a.name} className="flex items-center gap-4">
+                  <div>
+                    <img src={a.avatar} alt="" />
+                  </div>
+                  <div>
+                    <div className="text-mainText font-popsemi text-sm">
+                      {a.name}
+                    </div>
+                    <div className="text-xs text-[#7C8FAC] font-popreg">
+                      +993 61 727687
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+          <CustomButton
+            text="Hemmesini Gör"
+            style={{
+              border: "1px solid #13A538",
+              width: "100%",
+              marginTop: 30,
+              color: "#13A538",
+              fontFamily: "PopReg",
+              height: 36,
+            }}
+          />
         </div>
       </div>
-      {/* <ProfileHeader
-        userName="Aman Amanow"
-        phoneNumber="+993 65 123123"
-        transactionCount={938}
-        contactCount={3586}
-        onEditClick={handleEditClick}
-      /> */}
+
+      <div className="w-[100%] bg-lightBlue rounded-xl p-[30px] mt-[34px] flex items-center justify-between">
+        <div>
+          <div className="text-mainText font-popsemi text-[21px]">
+            Soňky goýulan Postlar
+          </div>
+          <div className="text-sm text-[#7C8FAC] font-popreg">
+            Şu günki sene
+          </div>
+        </div>
+        <div className="max-h-[9%]">
+          <img
+            className="object-cover h-[100px] w-[100%]"
+            src={bannerAdmin}
+            alt=""
+          />
+        </div>
+      </div>
+      <div className="mt-9 flex justify-between ">
+        {posts.map((p) => {
+          return <Post img={p.img} text={p.text} />;
+        })}
+      </div>
     </main>
   );
 };

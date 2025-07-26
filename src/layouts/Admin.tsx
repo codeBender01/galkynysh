@@ -29,6 +29,7 @@ const links = [
   {
     title: "Ulanyjylar",
     icon: <ShoppingBag />,
+    path: "/admin/users",
     sublinks: [
       { value: "hemmesi", label: "Adaty ulanyjylar" },
       { value: "wideo", label: "Resmi Ulanyjylar" },
@@ -90,6 +91,7 @@ interface SidebarDropdownProps {
   icon?: React.ReactNode;
   options: DropdownOption[];
   onSelect?: (value: string) => void;
+  mainPath?: string;
 }
 
 const labelClassname = "text-[#5A6A85] text-sm font-popreg";
@@ -99,11 +101,16 @@ const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
   icon,
   options,
   onSelect,
+  mainPath,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
+    if (mainPath) {
+      navigate(mainPath);
+    }
   };
 
   const handleOptionClick = (option: DropdownOption) => {
@@ -171,7 +178,7 @@ const AdminLayout: React.FC = () => {
           </div>
 
           <div
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/admin/main")}
             className={` flex items-center gap-2 mt-[70px] cursor-pointer hover:opacity-80 duration-200 ${labelClassname}`}
           >
             <Aperture />
@@ -191,6 +198,7 @@ const AdminLayout: React.FC = () => {
               return (
                 <SidebarDropdown
                   title={l.title}
+                  mainPath={l.path}
                   key={l.title}
                   icon={l.icon}
                   options={l.sublinks}
@@ -265,7 +273,10 @@ const AdminLayout: React.FC = () => {
               </button>
             );
           })}
-          <div className="bg-[#B3F2C3] mt-[30px] rounded-2xl py-4 px-4 flex items-center gap-2">
+          <div
+            onClick={() => navigate("/admin/profile")}
+            className="bg-[#B3F2C3] mt-[30px] rounded-2xl py-4 px-4 flex items-center gap-2"
+          >
             <div>
               <img src={avatar} alt="" />
             </div>

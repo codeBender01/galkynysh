@@ -1,0 +1,11 @@
+#active::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #13a538;
+  bottom: -50%;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

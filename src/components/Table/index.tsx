@@ -10,6 +10,7 @@ interface UserData {
   region: string;
   balance: number;
   avatar: string;
+  transaction: number;
 }
 
 const data: UserData[] = [
@@ -21,6 +22,7 @@ const data: UserData[] = [
     region: "Ahal",
     balance: 100,
     avatar: "👨‍💼",
+    transaction: 100,
   },
   {
     key: "2",
@@ -30,6 +32,7 @@ const data: UserData[] = [
     region: "Mary",
     balance: 240,
     avatar: "👩‍💼",
+    transaction: 100,
   },
   {
     key: "3",
@@ -39,6 +42,7 @@ const data: UserData[] = [
     region: "Lebap",
     balance: 342,
     avatar: "👨‍🦱",
+    transaction: 100,
   },
   {
     key: "4",
@@ -48,6 +52,7 @@ const data: UserData[] = [
     region: "Aşgabat",
     balance: 22,
     avatar: "👨‍💻",
+    transaction: 100,
   },
 ];
 
@@ -105,20 +110,27 @@ const columns: ColumnsType<UserData> = [
       <span className="font-semibold text-gray-900">{balance}</span>
     ),
   },
+  {
+    title: <span className="text-gray-500 font-medium">Tranzaksiýa sany</span>,
+    dataIndex: "transaction",
+    key: "transaction",
+    render: (balance: number) => (
+      <span className="font-semibold text-gray-900">{balance}</span>
+    ),
+  },
 ];
 
-const UsersTable: React.FC = () => {
+interface TableProps {
+  isTransactionNeeded: boolean;
+}
+
+const UsersTable: React.FC<TableProps> = ({ isTransactionNeeded }) => {
   return (
     <div className="p-6 bg-white shadow-lg flex-1 rounded-xl">
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-1 font-popsemi">
-          Täze Giren Ulanjylar
-        </h1>
-        <p className="text-sm text-gray-500">TM BIZ</p>
-      </div>
-
       <Table
-        columns={columns}
+        columns={
+          isTransactionNeeded ? columns : columns.slice(0, columns.length - 1)
+        }
         dataSource={data}
         pagination={false}
         className="custom-table"

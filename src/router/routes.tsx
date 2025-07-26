@@ -21,6 +21,8 @@ const Pay = lazy(() => import("../pages/Dashboard/Pay"));
 const SendMoney = lazy(() => import("../pages/Dashboard/Pay/SendMoney"));
 const ReceiveMoney = lazy(() => import("../pages/Dashboard/Pay/ReceiveMoney"));
 const Main = lazy(() => import("../pages/Admin/Main"));
+const Users = lazy(() => import("../pages/Admin/Users"));
+const ProfileAdmin = lazy(() => import("../pages/Admin/Profile"));
 
 export default function Router() {
   const routes = useRoutes([
@@ -77,6 +79,14 @@ export default function Router() {
         {
           element: <Main />,
           path: "main",
+        },
+        {
+          element: <Users />,
+          path: "users",
+        },
+        {
+          element: <ProfileAdmin />,
+          path: "profile",
         },
       ],
     },
