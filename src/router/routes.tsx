@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 
 import Auth from "../layouts/Auth";
 import ClientDashboard from "../layouts/ClientDashboard";
+import AdminLayout from "../layouts/Admin";
 import { Suspense, lazy } from "react";
 
 import SignUp from "../pages/SignUp";
@@ -19,6 +20,7 @@ const Profile = lazy(() => import("../pages/Dashboard/Profile"));
 const Pay = lazy(() => import("../pages/Dashboard/Pay"));
 const SendMoney = lazy(() => import("../pages/Dashboard/Pay/SendMoney"));
 const ReceiveMoney = lazy(() => import("../pages/Dashboard/Pay/ReceiveMoney"));
+const Main = lazy(() => import("../pages/Admin/Main"));
 
 export default function Router() {
   const routes = useRoutes([
@@ -63,6 +65,20 @@ export default function Router() {
         </Suspense>
       ),
       path: "/home",
+    },
+    {
+      element: (
+        <Suspense fallback={<div>Loading</div>}>
+          <AdminLayout />
+        </Suspense>
+      ),
+      path: "/admin",
+      children: [
+        {
+          element: <Main />,
+          path: "main",
+        },
+      ],
     },
     {
       element: (

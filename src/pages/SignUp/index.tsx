@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 import DefaultInput from "../../components/Input";
 import CustomCheckbox from "../../components/Checkbox";
@@ -8,6 +9,7 @@ import { Form } from "antd";
 const labelClassname = "font-popm text-mainText text-sm";
 
 const SignUp: FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="my-auto min-w-[70%]">
       <div className="text-mainText font-popsemi text-[30px]">Galkynyş</div>
@@ -46,6 +48,7 @@ const SignUp: FC = () => {
         </p>
       </div>
       <CustomButton
+        onClick={() => navigate("/verify")}
         text="Içeri Gir"
         style={{
           width: "100%",

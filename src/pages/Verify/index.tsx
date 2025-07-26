@@ -1,9 +1,11 @@
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../../components/Button";
 import NumberInput from "./ui/NumberInput";
 
 const Verify: FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="my-auto min-w-[70%]">
       <div className="text-mainText font-popsemi text-[20px]">
@@ -18,6 +20,7 @@ const Verify: FC = () => {
         })}
       </div>
       <CustomButton
+        onClick={() => navigate("/passport")}
         text="Dowam et"
         style={{
           width: "100%",
