@@ -38,6 +38,7 @@ const links = [
   {
     title: "Habarlar",
     icon: <FileText />,
+    path: "/admin/news",
     sublinks: [
       { value: "hemmesi", label: "Hemmesi" },
       { value: "wideo", label: "Wideo" },
@@ -48,6 +49,7 @@ const links = [
   {
     title: "Töleg sazlamalary",
     icon: <Grid2X2Plus />,
+    path: "/admin/payment",
     sublinks: [
       { value: "hemmesi", label: "Kategoriýalar" },
       { value: "wideo", label: "Töleg görnüşleri" },
@@ -58,18 +60,22 @@ const links = [
   },
   {
     title: "Tranzaksiýalar",
+    path: "/admin/transactions",
     icon: <CircleCheckBig />,
   },
   {
     title: "Bank kart görnüşleri",
+    path: "/admin/types",
     icon: <ChartBarStacked />,
   },
   {
     title: "Hasap görnüşleri",
+    path: "/admin/accounts",
     icon: <Award />,
   },
   {
     title: "Hyzmat görnüşleri",
+    path: "/admin/services",
     icon: <ChartPie />,
   },
 ];
@@ -207,7 +213,14 @@ const AdminLayout: React.FC = () => {
               );
             }
             return (
-              <button className="w-full flex items-center justify-between  py-3 text-left hover:bg-bg rounded-md px-2 group hover:text-white transition-colors duration-200">
+              <button
+                onClick={() => {
+                  if (l.path) {
+                    navigate(l.path);
+                  }
+                }}
+                className="w-full flex items-center justify-between  py-3 text-left hover:bg-bg rounded-md px-2 group hover:text-white transition-colors duration-200"
+              >
                 <div className="flex items-center space-x-3">
                   <div className="text-gray-600 group-hover:text-white">
                     {l.icon}
@@ -238,7 +251,12 @@ const AdminLayout: React.FC = () => {
               </span>
             </div>
           </button>
-          <button className="w-full flex items-center justify-between  py-3 text-left hover:bg-bg rounded-md px-2 group hover:text-white transition-colors duration-200">
+          <button
+            onClick={() => {
+              navigate("/admin/regions");
+            }}
+            className="w-full flex items-center justify-between  py-3 text-left hover:bg-bg rounded-md px-2 group hover:text-white transition-colors duration-200"
+          >
             <div className="flex items-center space-x-3">
               <div className="text-gray-600 group-hover:text-white">
                 <MapPin />

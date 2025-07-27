@@ -4,6 +4,10 @@ import { FileTextOutlined, UserOutlined } from "@ant-design/icons";
 import avatar from "../../assets/avatar1.png";
 import logo from "../../assets/logo.png";
 
+import bg from "../../assets/bgProfile.png";
+
+import CustomButton from "../Button";
+
 interface ProfileHeaderProps {
   userName: string;
   phoneNumber: string;
@@ -22,8 +26,14 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   return (
     <div className="relative w-full bg-white rounded-lg border-2 border-[#EAEFF4] overflow-hidden">
       {/* Green gradient background with decorative circles */}
-      <div className="relative h-48 bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-hidden">
-        {/* Logo */}
+      <div
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+        className="relative h-48 overflow-hidden"
+      >
         <div className="absolute top-[35%] left-6 flex items-center space-x-2">
           <div className="h-[44px]">
             <img src={logo} alt="" className="w-[100%] h-[100%]" />
@@ -31,9 +41,6 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         </div>
 
         {/* Decorative circles */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-green-600 bg-opacity-30 rounded-full transform translate-x-32 -translate-y-32"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-700 bg-opacity-20 rounded-full transform translate-x-48 translate-y-48"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-green-300 bg-opacity-20 rounded-full"></div>
       </div>
 
       {/* White bottom section */}
@@ -78,6 +85,20 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             <div className="text-sm text-gray-600">Kontakty</div>
           </div>
         </div>
+        <CustomButton
+          text="Üýtget"
+          style={{
+            fontSize: 14,
+            fontFamily: "PopSemi",
+            color: "white",
+            position: "absolute",
+            right: "20px",
+            backgroundColor: "#13A538",
+            height: 36,
+            bottom: "40px",
+            border: "none",
+          }}
+        />
       </div>
     </div>
   );

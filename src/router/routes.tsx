@@ -23,6 +23,13 @@ const ReceiveMoney = lazy(() => import("../pages/Dashboard/Pay/ReceiveMoney"));
 const Main = lazy(() => import("../pages/Admin/Main"));
 const Users = lazy(() => import("../pages/Admin/Users"));
 const ProfileAdmin = lazy(() => import("../pages/Admin/Profile"));
+const News = lazy(() => import("../pages/Admin/News"));
+const Payment = lazy(() => import("../pages/Admin/Payment"));
+const Transactions = lazy(() => import("../pages/Admin/Transactions"));
+const CardTypes = lazy(() => import("../pages/Admin/CardTypes"));
+const AccountTypes = lazy(() => import("../pages/Admin/AccountTypes"));
+const ServiceTypes = lazy(() => import("../pages/Admin/ServiceTypes"));
+const Regions = lazy(() => import("../pages/Admin/Regions"));
 
 export default function Router() {
   const routes = useRoutes([
@@ -87,6 +94,34 @@ export default function Router() {
         {
           element: <ProfileAdmin />,
           path: "profile",
+        },
+        {
+          element: <News />,
+          path: "news",
+        },
+        {
+          element: <Payment />,
+          path: "payment",
+        },
+        {
+          element: <Transactions />,
+          path: "transactions",
+        },
+        {
+          element: <CardTypes />,
+          path: "types",
+        },
+        {
+          element: <AccountTypes />,
+          path: "accounts",
+        },
+        {
+          element: <ServiceTypes />,
+          path: "services",
+        },
+        {
+          element: <Regions />,
+          path: "regions",
         },
       ],
     },

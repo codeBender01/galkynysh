@@ -11,6 +11,7 @@ interface UserData {
   balance: number;
   avatar: string;
   transaction: number;
+  status: string;
 }
 
 const data: UserData[] = [
@@ -23,6 +24,7 @@ const data: UserData[] = [
     balance: 100,
     avatar: "👨‍💼",
     transaction: 100,
+    status: "Barlanýar",
   },
   {
     key: "2",
@@ -33,6 +35,7 @@ const data: UserData[] = [
     balance: 240,
     avatar: "👩‍💼",
     transaction: 100,
+    status: "Üstünlikli",
   },
   {
     key: "3",
@@ -43,6 +46,7 @@ const data: UserData[] = [
     balance: 342,
     avatar: "👨‍🦱",
     transaction: 100,
+    status: "ÝALŇYŞLYK",
   },
   {
     key: "4",
@@ -53,6 +57,7 @@ const data: UserData[] = [
     balance: 22,
     avatar: "👨‍💻",
     transaction: 100,
+    status: "Barlanýar",
   },
 ];
 
@@ -62,6 +67,15 @@ const getRegionColor = (region: string) => {
     Mary: "orange",
     Lebap: "blue",
     Aşgabat: "volcano",
+  };
+  return colors[region] || "default";
+};
+
+const getStatuscolor = (region: string) => {
+  const colors: { [key: string]: string } = {
+    Barlanýar: "orange",
+    Üstünlikli: "blue",
+    ÝALŇYŞLYK: "volcano",
   };
   return colors[region] || "default";
 };
@@ -118,18 +132,41 @@ const columns: ColumnsType<UserData> = [
       <span className="font-semibold text-gray-900">{balance}</span>
     ),
   },
+  {
+    title: <span className="text-gray-500 font-medium">Status</span>,
+    dataIndex: "status",
+    key: "status",
+    render: (status: string) => (
+      <Tag
+        color={getStatuscolor(status)}
+        className="rounded-full px-3 py-1 text-sm font-medium"
+      >
+        {status}
+      </Tag>
+    ),
+  },
 ];
 
 interface TableProps {
   isTransactionNeeded: boolean;
+  isStatusNeeded?: boolean;
 }
 
-const UsersTable: React.FC<TableProps> = ({ isTransactionNeeded }) => {
+const UsersTable: React.FC<TableProps> = ({
+  isTransactionNeeded,
+  isStatusNeeded,
+}) => {
   return (
-    <div className="p-6 bg-white shadow-lg flex-1 rounded-xl">
+    <div className="p-6 bg-white flex-1 h-fit rounded-xl">
       <Table
         columns={
-          isTransactionNeeded ? columns : columns.slice(0, columns.length - 1)
+          isTransactionNeeded && isStatusNeeded
+            ? columns
+            : isTransactionNeeded && !isStatusNeeded
+            ? columns.slice(0, columns.length - 1)
+            : !isTransactionNeeded && isStatusNeeded
+            ? columns.filter((c) => c.key !== "transaction")
+            : []
         }
         dataSource={data}
         pagination={false}
